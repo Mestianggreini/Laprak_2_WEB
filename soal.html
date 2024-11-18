@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrasi HTML, CSS, dan JavaScript</title>
+    <style>
+        /* Gaya umum */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+            background-color: #ffffff; /* Set to white for default mode */
+            transition: all 0.3s ease-in-out;
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            text-align: left; /* Align the titles to the left */
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            margin-top: 20px;
+            font-size: 1.4em;
+            cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+        }
+
+        /* Set the color for subheadings (h3) under light mode */
+        body:not(.dark-mode) h3 {
+            color: #2980b9; /* Blue color for 1.1, 1.2, 1.3 */
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        ul {
+            margin: 10px 0 20px 20px;
+            padding-left: 0;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Gaya untuk tombol mode tampilan */
+        .mode button {
+            padding: 10px 15px;
+            margin-right: 10px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mode button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Gaya dark mode */
+        .dark-mode {
+            background-color: #6f4f28; /* Dark brown color */
+            color: white;
+        }
+
+        .dark-mode h1, .dark-mode h2, .dark-mode h3 {
+            color: #ecf0f1;
+        }
+
+        .dark-mode a {
+            color: #1abc9c;
+        }
+
+        .subtle {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        /* Gaya untuk link */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hide the content initially */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="mode">
+        <button onclick="setLightMode()">Light Mode</button>
+        <button onclick="setDarkMode()">Dark Mode</button>
+    </div>
+    <header>
+        <h1>1. Mengapa Menggunakan HTML, CSS, dan JavaScript?</h1>
+        <h2>1.1 HTML (HyperText Markup Language)</h2>
+        <p>HTML digunakan sebagai kerangka utama sebuah halaman web. HTML memungkinkan pengembang untuk menyusun struktur dan konten halaman seperti teks, gambar, tabel, dan formulir. Tanpa HTML, sebuah halaman web tidak akan memiliki elemen dasar untuk ditampilkan di browser.</p>
+
+        <h2>1.2 CSS (Cascading Style Sheets)</h2>
+        <p>CSS digunakan untuk mempercantik tampilan halaman web. CSS mengatur tata letak, warna, font, dan desain visual lainnya agar website terlihat menarik dan responsif. Dengan CSS, pengembang dapat memisahkan konten (HTML) dari presentasi (gaya).</p>
+
+        <h2>1.3 JavaScript</h2>
+        <p>JavaScript menambahkan interaktivitas dan fungsionalitas pada halaman web. JavaScript memungkinkan elemen-elemen web seperti tombol, formulir, atau menu menjadi dinamis dan responsif terhadap aksi pengguna. Tanpa JavaScript, halaman web hanya bersifat statis.</p>
+    </header>
+    
+    <section>
+        <h2>2. Bagaimana Integrasi HTML, CSS, dan JavaScript dalam Pemrograman Web?</h2>
+        <h3 onclick="toggleContent(this)">2.1 HTML Sebagai Dasar Struktur</h3>
+        <div class="content">
+            <p>HTML menyusun elemen-elemen seperti <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, dan <code>&lt;footer&gt;</code> untuk membentuk kerangka halaman web. HTML bertindak sebagai tulang punggung dari situs web dan menyediakan kerangka untuk elemen-elemen seperti tombol, paragraf, dan gambar.</p>
+            <ul>
+                <li>Menyusun konten secara hierarkis untuk memudahkan pemahaman oleh pengguna dan mesin pencari.</li>
+                <li>Membentuk hubungan antara berbagai bagian halaman, seperti tautan internal dan eksternal.</li>
+            </ul>
+        </div>
+
+        <h3 onclick="toggleContent(this)">2.2 CSS untuk Mempercantik Halaman</h3>
+        <div class="content">
+            <p>File CSS dapat dihubungkan ke HTML menggunakan elemen <code>&lt;link&gt;</code> di dalam <code>&lt;head&gt;</code> atau melalui atribut <code>style</code> pada elemen HTML. CSS memungkinkan pengaturan warna, margin, padding, hingga animasi sederhana. CSS dapat diimplementasikan dalam tiga cara:</p>
+            <ul>
+                <li><strong>Inline CSS:</strong> Gaya ditambahkan langsung ke elemen HTML menggunakan atribut <code>style</code>.</li>
+                <li><strong>Internal CSS:</strong> Gaya didefinisikan dalam tag <code>&lt;style&gt;</code> di bagian <code>&lt;head&gt;</code> HTML.</li>
+                <li><strong>Eksternal CSS:</strong> Gaya didefinisikan dalam file terpisah (.css) yang dihubungkan dengan elemen <code>&lt;link&gt;</code>.</li>
+            </ul>
+        </div>
+
+        <h3 onclick="toggleContent(this)">2.3 JavaScript Menambahkan Logika dan Interaktivitas</h3>
+        <div class="content">
+            <p>File JavaScript dapat dihubungkan ke HTML menggunakan elemen <code>&lt;script&gt;</code>. JavaScript memungkinkan manipulasi elemen HTML atau gaya CSS secara dinamis berdasarkan aksi pengguna seperti klik tombol atau pengisian formulir.</p>
+            <ul>
+                <li>Menambahkan logika untuk menciptakan pengalaman pengguna yang interaktif.</li>
+                <li>Memungkinkan aksi terjadi, seperti menjalankan suatu proses ketika tombol diklik.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024, Pemrograman Web</p>
+    </footer>
+
+    <script>
+        // Function to set Light Mode
+        function setLightMode() {
+            document.body.classList.remove('dark-mode');  // Remove dark mode class
+            localStorage.setItem('mode', 'light');  // Save preference to localStorage
+        }
+
+        // Function to set Dark Mode
+        function setDarkMode() {
+            document.body.classList.add('dark-mode');  // Add dark mode class
+            localStorage.setItem('mode', 'dark');  // Save preference to localStorage
+        }
+
+        // Check the saved mode preference on page load
+        window.onload = function() {
+            const savedMode = localStorage.getItem('mode') || 'light';  // Default to light mode
+            if (savedMode === 'dark') {
+                document.body.classList.add('dark-mode');  // Apply dark mode if previously selected
+            }
+        };
+
+        // Function to toggle content and subheading visibility
+        function toggleContent(subheading) {
+            const content = subheading.nextElementSibling;  // Get the next sibling, which is the content div
+
+            const hide = confirm("Apakah Anda ingin menyembunyikan konten bagian ini dan subjudul?");
+            if (hide) {
+                content.classList.toggle('hidden');  // Toggle the 'hidden' class to hide or show the content
+                subheading.classList.toggle('hidden');  // Also hide the subheading itself
+            }
+        }
+    </script>
+</body>
+</html>
